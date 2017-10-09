@@ -17,6 +17,9 @@ public abstract class CdiTestBase {
 
   @BeforeClass
   public static void beforeClass() {
+
+    System.setProperty("java.util.logging.config.file", "jul.properties");
+
     container = SeContainerInitializer.newInstance().initialize();
   }
 

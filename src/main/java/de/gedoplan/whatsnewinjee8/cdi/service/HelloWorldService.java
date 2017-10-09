@@ -1,8 +1,8 @@
 package de.gedoplan.whatsnewinjee8.cdi.service;
 
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.ApplicationScoped;
 
-@Dependent
+@ApplicationScoped
 public class HelloWorldService {
   public String getHelloWorld() {
     return "Hello, world!";

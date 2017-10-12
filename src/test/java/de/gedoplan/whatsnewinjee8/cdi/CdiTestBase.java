@@ -17,8 +17,7 @@ public abstract class CdiTestBase {
 
   @BeforeClass
   public static void beforeClass() {
-
-    System.setProperty("java.util.logging.config.file", "jul.properties");
+    System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager");
 
     container = SeContainerInitializer.newInstance().initialize();
   }
@@ -37,7 +36,9 @@ public abstract class CdiTestBase {
 
   @AfterClass
   public static void afterClass() {
-    container.close();
+    if (container != null) {
+      container.close();
+    }
   }
 
 }

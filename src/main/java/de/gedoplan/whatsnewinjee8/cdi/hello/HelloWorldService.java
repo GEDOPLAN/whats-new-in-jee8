@@ -1,4 +1,4 @@
-package de.gedoplan.whatsnewinjee8.cdi.service;
+package de.gedoplan.whatsnewinjee8.cdi.hello;
 
 import javax.enterprise.context.ApplicationScoped;
 

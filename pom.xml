@@ -171,10 +171,10 @@
 
         <profile>
             <id>jsonb-johnzon</id>
-             <activation>
+            <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-           <dependencies>
+            <dependencies>
                 <dependency>
                     <groupId>org.apache.johnzon</groupId>
                     <artifactId>johnzon-jsonb</artifactId>
@@ -183,6 +183,28 @@
             </dependencies>
         </profile>
 
+        <!-- Profiles for Bean Validation providers -->
+        <profile>
+            <id>bv-hibernate</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                    <version>6.0.3.Final</version>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>javax.el</artifactId>
+                    <version>3.0.1-b08</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
     </profiles>
 
 </project>

@@ -16,17 +16,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Access(AccessType.FIELD)
 @Getter
-// @Setter
+@Setter
 @JsonbVisibility(JsonAccessType.AllFieldsVisibilityStrategy.class)
 @JsonbNillable
 public class Country extends SingleIdEntity<String> {
+
   @Id
-  @Column(name = "ISO_CODE", length = 2)
-  private String isoCode;
+  @Column(columnDefinition = "CHAR(2)")
+  private String id;
 
   private String name;
 
@@ -48,18 +50,11 @@ public class Country extends SingleIdEntity<String> {
   @JsonbTransient
   private String dummy = "not serialized";
 
-  // TODO protected sollte möglich sein
   protected Country() {
   }
 
-  @JsonbTransient
-  @Override
-  public String getId() {
-    return this.isoCode;
-  }
-
-  public Country(String isoCode, String name, String phonePrefix, String carCode, long population, Continent continent, LocalDate founded, boolean expired) {
-    this.isoCode = isoCode;
+  public Country(String id, String name, String phonePrefix, String carCode, long population, Continent continent, LocalDate founded, boolean expired) {
+    this.id = id;
     this.name = name;
     this.phonePrefix = phonePrefix;
     this.carCode = carCode;
@@ -67,6 +62,17 @@ public class Country extends SingleIdEntity<String> {
     this.continent = continent;
     this.founded = founded;
     this.expired = expired;
+  }
+
+  public Country(Country other) {
+    this.id = other.id;
+    this.name = other.name;
+    this.phonePrefix = other.phonePrefix;
+    this.carCode = other.carCode;
+    this.population = other.population;
+    this.continent = other.continent;
+    this.founded = other.founded;
+    this.expired = other.expired;
   }
 
   public static Country CA = new Country("CA", "Canada", "1", null, 34_482_779, Continent.NORTH_AMERICA, LocalDate.of(1867, 7, 1), false);

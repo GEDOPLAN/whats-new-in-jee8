@@ -1,7 +1,7 @@
 package de.gedoplan.whatsnewinjee8.json.bind;
 
-import static org.junit.Assert.assertEquals;
-import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
+import static org.junit.Assert.*;
+import static org.unitils.reflectionassert.ReflectionAssert.*;
 
 import de.gedoplan.whatsnewinjee8.entity.Country;
 
@@ -15,7 +15,7 @@ import org.junit.Test;
 public class JsonBindingTest {
 
   static final Country TEST_COUNTRY = Country.CA;
-  static final String TEST_JSON = "{\"carCode\":null,\"continent\":\"NA\",\"expired\":false,\"founded\":\"1867-07-01\",\"isoCode\":\"CA\",\"name\":\"Canada\",\"phonePrefix\":\"1\",\"population\":34482779}";
+  static final String TEST_JSON = "{\"carCode\":null,\"continent\":\"NA\",\"expired\":false,\"founded\":\"1867-07-01\",\"id\":\"CA\",\"name\":\"Canada\",\"phonePrefix\":\"1\",\"population\":34482779}";
 
   static final Log log = LogFactory.getLog(JsonBindingTest.class);
 

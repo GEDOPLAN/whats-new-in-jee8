@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="/WEB-INF/templates/standard.xhtml">
+        <ui:param name="title" value="JSON-B"/>
+        <ui:define name="content">
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputText value="POJO"/>
+                    <h:panelGroup/>
+                    <h:outputText value="JSON"/>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="id: " for="id"/>
+                        <h:inputText value="#{jsonbPresenter.country.id}" id="id" />
+
+                        <h:outputLabel value="name: " for="name"/>
+                        <h:inputText value="#{jsonbPresenter.country.name}" id="name" />
+
+                        <h:outputLabel value="phonePrefix: " for="phonePrefix"/>
+                        <h:inputText value="#{jsonbPresenter.country.phonePrefix}" id="phonePrefix" />
+
+                        <h:outputLabel value="carCode: " for="carCode"/>
+                        <h:inputText value="#{jsonbPresenter.country.carCode}" id="carCode" />
+
+                        <h:outputLabel value="population: " for="population"/>
+                        <h:inputText value="#{jsonbPresenter.country.population}" id="population" >
+                            <f:convertNumber pattern="#,##0"/>
+                        </h:inputText>
+
+                        <h:outputLabel value="continent: " for="continent"/>
+                        <h:selectOneMenu value="#{jsonbPresenter.country.continent}" id="continent" >
+                            <f:selectItems value="#{jsonbPresenter.continents}" />
+                        </h:selectOneMenu>
+
+                        <h:outputLabel value="founded: " for="founded"/>
+                        <h:inputText value="#{jsonbPresenter.country.founded}" id="founded" />
+
+                        <h:outputLabel value="expired: " for="expired"/>
+                        <h:selectBooleanCheckbox value="#{jsonbPresenter.country.expired}" id="expired" />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="1">
+                        <h:commandButton value="&gt;&gt;&gt;" action="#{jsonbPresenter.toJson()}"/>
+                        <h:commandButton value="&lt;&lt;&lt;" action="#{jsonbPresenter.fromJson()}"/>
+                    </h:panelGrid>
+
+                    <h:inputTextarea cols="50" rows="15" value="#{jsonbPresenter.json}" id="json" />
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertThat;
 
 import de.gedoplan.whatsnewinjee8.TestBase;
 import de.gedoplan.whatsnewinjee8.entity.Questionnaire;
-import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
 import java.time.ZonedDateTime;
 import java.util.Set;
@@ -20,6 +19,7 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ValidationApiTest extends TestBase {

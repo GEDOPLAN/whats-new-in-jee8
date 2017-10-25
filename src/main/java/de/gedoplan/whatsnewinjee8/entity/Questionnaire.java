@@ -1,6 +1,6 @@
 package de.gedoplan.whatsnewinjee8.entity;
 
-import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
+import java.io.Serializable;
 
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -20,11 +20,12 @@ import javax.validation.groups.Default;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
 @Getter
 @Setter
 @ToString
-public class Questionnaire {
+public class Questionnaire implements Serializable {
 
   @NotNull(groups = { InitialInput.class, Default.class })
   @PastOrPresent(groups = { InitialInput.class, Default.class })

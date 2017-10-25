@@ -245,9 +245,36 @@
         <dependency>
           <groupId>org.eclipse.persistence</groupId>
           <artifactId>eclipselink</artifactId>
-<!--           <artifactId>org.eclipse.persistence.jpa</artifactId> -->
+          <!-- <artifactId>org.eclipse.persistence.jpa</artifactId> -->
           <version>${eclipselink.version}</version>
           <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jpa-hibernate</id>
+      <properties>
+        <hibernate.version>5.2.12.Final</hibernate.version>
+        <javax.persistence.provider>org.hibernate.jpa.HibernatePersistenceProvider</javax.persistence.provider>
+        <jpa.se.classes></jpa.se.classes>
+        <jpaprovider.properties>
+          jpaprovider.name=Hibernate
+          jpaprovider.version=${hibernate.version}
+        </jpaprovider.properties>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>${hibernate.version}</version>
+          <scope>test</scope>
+          <exclusions>
+            <exclusion>
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>hibernate-jpa-2.1-api</artifactId>
+            </exclusion>
+          </exclusions>
         </dependency>
       </dependencies>
     </profile>
@@ -279,6 +306,7 @@
         </dependency>
       </dependencies>
     </profile>
+
   </profiles>
 
 </project>

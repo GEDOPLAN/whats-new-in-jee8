@@ -1,6 +1,7 @@
 package de.gedoplan.whatsnewinjee8.cdi;
 
 import de.gedoplan.whatsnewinjee8.TestBase;
+
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -12,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
-public abstract class CdiTestBase extends TestBase{
+public abstract class CdiTestBase extends TestBase {
 
   protected static SeContainer container;
 

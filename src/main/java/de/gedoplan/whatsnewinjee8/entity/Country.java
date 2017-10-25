@@ -12,8 +12,11 @@ import javax.json.bind.annotation.JsonbVisibility;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlTransient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,15 +43,18 @@ public class Country extends SingleIdEntity<String> {
 
   private long population;
 
-  @JsonbTypeAdapter(ContinentJsonbAdapter.class)
+  @JsonbTypeAdapter(ContinentConverter.class)
+  @Convert(converter = ContinentConverter.class)
   private Continent continent;
 
   private LocalDate founded;
 
   private boolean expired;
 
+  @Transient
   @JsonbTransient
-  private String dummy = "not serialized";
+  @XmlTransient
+  private String dummy = "unused";
 
   protected Country() {
   }

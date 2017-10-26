@@ -1,9 +1,11 @@
 package de.gedoplan.whatsnewinjee8.entity;
 
 import de.gedoplan.whatsnewinjee8.validation.constraint.ValidAddress;
+import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
@@ -11,8 +13,8 @@ import javax.validation.groups.Default;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
+@Embeddable
 @Getter
 @Setter
 @ToString

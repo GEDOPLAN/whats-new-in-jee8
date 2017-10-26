@@ -56,7 +56,7 @@ public class Country extends SingleIdEntity<String> {
   @XmlTransient
   private String dummy = "unused";
 
-  protected Country() {
+  public Country() {
   }
 
   public Country(String id, String name, String phonePrefix, String carCode, long population, Continent continent, LocalDate founded, boolean expired) {

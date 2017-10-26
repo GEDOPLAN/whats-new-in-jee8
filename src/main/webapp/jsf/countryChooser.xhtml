@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+  <ui:composition template="/WEB-INF/templates/standard.xhtml">
+    <ui:param name="title" value="JSF"/>
+    <ui:define name="content">
+
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="Country:" for="countrySel" />
+          <h:selectOneMenu id="countrySel" value="#{countryPresenter.someCountry}">
+            <f:selectItems value="#{countryPresenter.countries}" var="country" itemLabel="#{country.name}" itemValue="#{country}"/>
+          </h:selectOneMenu>
+
+          <h:commandButton value="ok" />
+          <h:panelGroup />
+
+          <h:outputLabel value="Selected:" for="country" />
+          <h:outputText id="country" value="#{countryPresenter.someCountry.toString()}" />
+        </h:panelGrid>
+      </h:form>
+
+    </ui:define>
+  </ui:composition>
+</html>

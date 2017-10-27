@@ -2,6 +2,7 @@ package de.gedoplan.whatsnewinjee8.cdi;
 
 import de.gedoplan.whatsnewinjee8.TestBase;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -31,7 +32,7 @@ public abstract class CdiTestBase extends TestBase {
   @SuppressWarnings({ "rawtypes", "unchecked" })
   public void startRequestContextAndHandleInjectsInTestClass() {
     ContextControl contextControl = container.select(ContextControl.class).get();
-    contextControl.startContexts();
+    contextControl.startContext(RequestScoped.class);
 
     BeanManager beanManager = container.getBeanManager();
 
@@ -45,7 +46,7 @@ public abstract class CdiTestBase extends TestBase {
   @After
   public void stopRequestContext() {
     ContextControl contextControl = container.select(ContextControl.class).get();
-    contextControl.stopContexts();
+    contextControl.stopContext(RequestScoped.class);
   }
 
   // @AfterClass

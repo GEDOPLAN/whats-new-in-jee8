@@ -50,4 +50,11 @@ public class DocumentTest extends CdiTestBase {
         .forEach(d -> assertNotNull("Document.lastChange must not be null", d.getLastChange()));
   }
 
+  @Test
+  public void test_02_showAll() throws Exception {
+    this.log.info("----- test_02_showAll -----");
+
+    this.documentRepository.findAllAsStream().map(x -> "Found " + x).forEach(this.log::info);
+  }
+
 }

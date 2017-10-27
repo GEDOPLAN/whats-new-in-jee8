@@ -8,6 +8,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
 
 @Dependent
@@ -17,7 +18,7 @@ public class InitCountryDemoDataService {
   CountryRepository countryRepository;
 
   @Transactional(rollbackOn = Exception.class)
-  void createDemoData(@Observes @Initialized(ApplicationScoped.class) Object event) {
+  void createDemoData(@Observes @Initialized(ApplicationScoped.class) ServletContext event) {
     if (this.countryRepository.countAll() == 0) {
       this.countryRepository.merge(Country.CA);
       this.countryRepository.merge(Country.CN);

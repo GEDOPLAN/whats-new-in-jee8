@@ -3,13 +3,13 @@
   <persistence-unit name="conference" transaction-type="JTA">
     <jta-data-source>jdbc/conference</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
     <properties>
-      <property name="eclipselink.ddl-generation" value="create-tables" />
-      <property name="eclipselink.ddl-generation.output-mode" value="database" />
-
-      <property name="hibernate.hbm2ddl.auto" value="update" />
-      <property name="hibernate.id.new_generator_mappings" value="true" />
-      <property name="hibernate.show_sql" value="false"></property>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.id.new_generator_mappings" value="true"/>
+      <property name="hibernate.show_sql" value="false"/>
     </properties>
   </persistence-unit>
 </persistence>

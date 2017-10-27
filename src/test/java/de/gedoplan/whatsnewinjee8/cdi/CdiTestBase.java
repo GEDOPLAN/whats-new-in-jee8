@@ -9,22 +9,30 @@ import javax.enterprise.inject.spi.AnnotatedType;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.inject.spi.InjectionTarget;
 
-import org.junit.AfterClass;
+import org.apache.deltaspike.cdise.api.ContextControl;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
 public abstract class CdiTestBase extends TestBase {
 
+  private static SeContainerInitializer seContainerInitializer = SeContainerInitializer.newInstance();
   protected static SeContainer container;
 
   @BeforeClass
   public static void startCdiContainer() {
-    container = SeContainerInitializer.newInstance().initialize();
+    // TODO OWB fails if a new container is started per test
+    if (container == null) {
+      container = seContainerInitializer.initialize();
+    }
   }
 
   @Before
   @SuppressWarnings({ "rawtypes", "unchecked" })
-  public void handleInjectsInTestClass() {
+  public void startRequestContextAndHandleInjectsInTestClass() {
+    ContextControl contextControl = container.select(ContextControl.class).get();
+    contextControl.startContexts();
+
     BeanManager beanManager = container.getBeanManager();
 
     CreationalContext creationalContext = beanManager.createCreationalContext(null);
@@ -34,11 +42,17 @@ public abstract class CdiTestBase extends TestBase {
     injectionTarget.inject(this, creationalContext);
   }
 
-  @AfterClass
-  public static void stopCdiContainer() {
-    if (container != null) {
-      container.close();
-    }
+  @After
+  public void stopRequestContext() {
+    ContextControl contextControl = container.select(ContextControl.class).get();
+    contextControl.stopContexts();
   }
+
+  // @AfterClass
+  // public static void stopCdiContainer() {
+  // if (container != null) {
+  // container.close();
+  // }
+  // }
 
 }

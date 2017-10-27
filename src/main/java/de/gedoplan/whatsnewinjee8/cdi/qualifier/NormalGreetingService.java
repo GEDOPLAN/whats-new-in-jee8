@@ -2,8 +2,10 @@ package de.gedoplan.whatsnewinjee8.cdi.qualifier;
 
 import java.util.Calendar;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 
+@ApplicationScoped
 @Default
 @Greeting(type = GreetingType.NORMAL)
 @Greeting(type = GreetingType.COLLOQUIAL)

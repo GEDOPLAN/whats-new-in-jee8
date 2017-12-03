@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:composition template="WEB-INF/templates/standard.xhtml">
         <ui:define name="content">
@@ -43,59 +43,14 @@
                             <dd>
                                 <h:commandLink value="@Inject support in converter" action="/jsf/countryChooser.xhtml?faces-redirect=true" />
                             </dd>
+                            <dd>
+                                <h:commandLink value="Websocket support" action="/jsf/ticker.xhtml?faces-redirect=true" />
+                            </dd>
                         </dl>
                     </dd>
 
                     <hr/>
                     
-                    <dt>
-                        <strong>Java Persistence 2.1</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dt>
-                                <strong>Converter</strong>
-                            </dt>
-                            <dd>
-                                <h:commandLink value="Converter for boolean and enum" action="/countries?faces-redirect=true" />
-                            </dd>
-
-                            <dt>
-                                <strong>Entity Graphs</strong>
-                            </dt>
-                            <dd>
-                                <h:commandLink value="Fetching lazy attributes via fetch graph" action="/publishers?faces-redirect=true" />
-                            </dd>
-                        </dl>
-                    </dd>
-
-                    <dt>
-                        <strong>JAX-RS 2.0</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dt>
-                                <strong>REST Resources</strong>
-                            </dt>
-                            <dd>
-                                <h:outputLink value="rest/country">Get all countries</h:outputLink>
-                            </dd>
-                            <dd>
-                                <h:outputLink value="rest/country/DE">Get a single country</h:outputLink>
-                            </dd>
-                        </dl>
-                    </dd>
-
-                    <dt>
-                        <strong>Websockets</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dd>
-                                <h:commandLink value="Server-side push" action="/ticker?faces-redirect=true" />
-                            </dd>
-                        </dl>
-                    </dd>
                 </dl>
             </h:form>
         </ui:define>

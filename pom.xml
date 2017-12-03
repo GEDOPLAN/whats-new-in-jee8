@@ -102,12 +102,18 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- <dependency> -->
-    <!-- <groupId>org.apache.deltaspike.core</groupId> -->
-    <!-- <artifactId>deltaspike-core-impl</artifactId> -->
-    <!-- <version>${deltaspike.version}</version> -->
-    <!-- <scope>test</scope> -->
-    <!-- </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.deltaspike.core</groupId> -->
+<!--       <artifactId>deltaspike-core-api</artifactId> -->
+<!--       <version>${deltaspike.version}</version> -->
+<!--       <scope>test</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.deltaspike.core</groupId> -->
+<!--       <artifactId>deltaspike-core-impl</artifactId> -->
+<!--       <version>${deltaspike.version}</version> -->
+<!--       <scope>test</scope> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>org.apache.deltaspike.cdictrl</groupId>
       <artifactId>deltaspike-cdictrl-api</artifactId>
@@ -145,11 +151,15 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+      <properties>
+        <cdi.provider.name>weld</cdi.provider.name>
+        <cdi.provider.version>3.0.2.Final</cdi.provider.version>
+      </properties>
       <dependencies>
         <dependency>
           <groupId>org.jboss.weld.se</groupId>
           <artifactId>weld-se-shaded</artifactId>
-          <version>3.0.1.Final</version>
+          <version>${cdi.provider.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
@@ -163,11 +173,15 @@
 
     <profile>
       <id>cdi-owb</id>
+      <properties>
+        <cdi.provider.name>owb</cdi.provider.name>
+        <cdi.provider.version>2.0.2</cdi.provider.version>
+      </properties>
       <dependencies>
         <dependency>
           <groupId>org.apache.openwebbeans</groupId>
           <artifactId>openwebbeans-se</artifactId>
-          <version>2.0.1</version>
+          <version>${cdi.provider.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
@@ -182,26 +196,25 @@
     <!-- Profiles for JSON-B provider -->
     <profile>
       <id>jsonb-yasson</id>
-      <repositories>
-        <repository>
-          <id>yasson-snapshots</id>
-          <name>Yasson Snapshots</name>
-          <url>https://repo.eclipse.org/content/repositories/yasson-snapshots/</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
+<!--       <repositories> -->
+<!--         <repository> -->
+<!--           <id>yasson-snapshots</id> -->
+<!--           <name>Yasson Snapshots</name> -->
+<!--           <url>https://repo.eclipse.org/content/repositories/yasson-snapshots/</url> -->
+<!--           <releases> -->
+<!--             <enabled>false</enabled> -->
+<!--           </releases> -->
+<!--           <snapshots> -->
+<!--             <enabled>true</enabled> -->
+<!--           </snapshots> -->
+<!--         </repository> -->
+<!--       </repositories> -->
 
       <dependencies>
         <dependency>
           <groupId>org.eclipse</groupId>
           <artifactId>yasson</artifactId>
-          <version>1.0.1-SNAPSHOT</version>
-          <!-- <version>1.0</version> -->
+          <version>1.0.1</version>
           <scope>test</scope>
         </dependency>
         <dependency>
@@ -222,7 +235,7 @@
         <dependency>
           <groupId>org.apache.johnzon</groupId>
           <artifactId>johnzon-jsonb</artifactId>
-          <version>1.1.4</version>
+          <version>1.1.5</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
@@ -238,7 +251,7 @@
         <dependency>
           <groupId>org.hibernate.validator</groupId>
           <artifactId>hibernate-validator</artifactId>
-          <version>6.0.3.Final</version>
+          <version>6.0.5.Final</version>
           <scope>test</scope>
         </dependency>
 

@@ -1,5 +1,6 @@
 package de.gedoplan.whatsnewinjee8.cdi;
 
+import de.gedoplan.baselibs.utils.util.ApplicationProperties;
 import de.gedoplan.whatsnewinjee8.TestBase;
 
 import javax.enterprise.context.RequestScoped;
@@ -12,6 +13,7 @@ import javax.enterprise.inject.spi.InjectionTarget;
 
 import org.apache.deltaspike.cdise.api.ContextControl;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -20,9 +22,12 @@ public abstract class CdiTestBase extends TestBase {
   private static SeContainerInitializer seContainerInitializer = SeContainerInitializer.newInstance();
   protected static SeContainer container;
 
+  protected static String cdiProviderName;
+
   @BeforeClass
   public static void startCdiContainer() {
-    // TODO OWB fails if a new container is started per test
+    cdiProviderName = ApplicationProperties.getProperty("cdi.provider.name");
+
     if (container == null) {
       container = seContainerInitializer.initialize();
     }
@@ -49,11 +54,15 @@ public abstract class CdiTestBase extends TestBase {
     contextControl.stopContext(RequestScoped.class);
   }
 
-  // @AfterClass
-  // public static void stopCdiContainer() {
-  // if (container != null) {
-  // container.close();
-  // }
-  // }
+  @AfterClass
+  public static void stopCdiContainer() {
+    // TODO OWB fails if a new container is started per test
+    if (!"owb".equals(cdiProviderName)) {
+      if (container != null) {
+        container.close();
+        container = null;
+      }
+    }
+  }
 
 }

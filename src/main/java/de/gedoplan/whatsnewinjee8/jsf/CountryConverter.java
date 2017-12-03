@@ -2,7 +2,7 @@ package de.gedoplan.whatsnewinjee8.jsf;
 
 import de.gedoplan.whatsnewinjee8.entity.Country;
 import de.gedoplan.whatsnewinjee8.persistence.CountryRepository;
-import javax.enterprise.inject.spi.CDI;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -21,6 +21,11 @@ public class CountryConverter implements Converter<Country> {
     if (uiValue == null) {
       return null;
     }
+
+    // Workaround if "managed=true" does not work (e. g. in GLF 5.0)
+    // if (this.countryRepository == null) {
+    // this.countryRepository = CDI.current().select(CountryRepository.class).get();
+    // }
 
     try {
       Country country = this.countryRepository.findById(uiValue);

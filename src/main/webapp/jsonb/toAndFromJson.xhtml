@@ -34,7 +34,9 @@
                         </h:selectOneMenu>
 
                         <h:outputLabel value="founded: " for="founded"/>
-                        <h:inputText value="#{jsonbPresenter.country.founded}" id="founded" />
+                        <h:inputText value="#{jsonbPresenter.country.founded}" id="founded" >
+                          <f:convertDateTime type="localDate"/>
+                        </h:inputText>
 
                         <h:outputLabel value="expired: " for="expired"/>
                         <h:selectBooleanCheckbox value="#{jsonbPresenter.country.expired}" id="expired" />

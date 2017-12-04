@@ -1,14 +1,12 @@
 package de.gedoplan.whatsnewinjee8.entity;
 
 import de.gedoplan.baselibs.persistence.entity.SingleIdEntity;
-import de.gedoplan.whatsnewinjee8.json.bind.JsonAccessType;
 
 import java.time.LocalDate;
 
 import javax.json.bind.annotation.JsonbNillable;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.json.bind.annotation.JsonbVisibility;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -25,7 +23,6 @@ import lombok.Setter;
 @Access(AccessType.FIELD)
 @Getter
 @Setter
-@JsonbVisibility(JsonAccessType.AllFieldsVisibilityStrategy.class)
 @JsonbNillable
 public class Country extends SingleIdEntity<String> {
 

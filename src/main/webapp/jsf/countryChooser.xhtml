@@ -15,8 +15,33 @@
           <h:commandButton value="ok" />
           <h:panelGroup />
 
-          <h:outputLabel value="Selected:" for="country" />
-          <h:outputText id="country" value="#{countryPresenter.someCountry.toString()}" />
+          <h:outputLabel value="id:" for="id" />
+          <h:outputText id="id" value="#{countryPresenter.someCountry.id}" />
+
+          <h:outputLabel value="name:" for="name" />
+          <h:outputText id="name" value="#{countryPresenter.someCountry.name}" />
+
+          <h:outputLabel value="phonePrefix:" for="phonePrefix" />
+          <h:outputText id="phonePrefix" value="#{countryPresenter.someCountry.phonePrefix}" />
+
+          <h:outputLabel value="carCode:" for="carCode" />
+          <h:outputText id="carCode" value="#{countryPresenter.someCountry.carCode}" />
+
+          <h:outputLabel value="population:" for="population" />
+          <h:outputText id="population" value="#{countryPresenter.someCountry.population}" >
+            <f:convertNumber pattern="#,000"/>
+          </h:outputText>
+
+          <h:outputLabel value="continent:" for="continent" />
+          <h:outputText id="continent" value="#{countryPresenter.someCountry.continent}" />
+
+          <h:outputLabel value="founded:" for="founded" />
+          <h:outputText id="founded" value="#{countryPresenter.someCountry.founded}">
+            <f:convertDateTime type="localDate"/>
+          </h:outputText>
+
+          <h:outputLabel value="expired:" for="expired" />
+          <h:outputText id="expired" value="#{countryPresenter.someCountry.expired}" />
         </h:panelGrid>
       </h:form>
 

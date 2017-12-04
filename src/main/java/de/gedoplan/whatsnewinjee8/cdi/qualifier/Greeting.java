@@ -13,24 +13,24 @@ import de.gedoplan.whatsnewinjee8.cdi.qualifier.Greeting.List;
 
 @Qualifier
 @Retention(RUNTIME)
-@Target({METHOD, FIELD, PARAMETER, TYPE})
+@Target({ METHOD, FIELD, PARAMETER, TYPE })
 @Repeatable(List.class)
 @Documented
 public @interface Greeting {
 
-    GreetingType type();
+  GreetingType type();
 
-    /**
-     * Defines several {@link Greeting} annotations on the same element.
-     *
-     * @see javax.validation.constraints.NotNull
-     */
-    @Target({METHOD, FIELD, PARAMETER, TYPE})
-    @Retention(RUNTIME)
-    @Documented
-    @interface List {
+  /**
+   * Defines several {@link Greeting} annotations on the same element.
+   *
+   * @see javax.validation.constraints.NotNull
+   */
+  @Target({ METHOD, FIELD, PARAMETER, TYPE })
+  @Retention(RUNTIME)
+  @Documented
+  @interface List {
 
-        Greeting[] value();
-    }
+    Greeting[] value();
+  }
 
 }

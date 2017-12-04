@@ -1,7 +1,8 @@
 package de.gedoplan.whatsnewinjee8.entity;
 
-import java.io.Serializable;
+import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +21,6 @@ import javax.validation.groups.Default;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import de.gedoplan.whatsnewinjee8.validation.group.InitialInput;
 
 @Getter
 @Setter

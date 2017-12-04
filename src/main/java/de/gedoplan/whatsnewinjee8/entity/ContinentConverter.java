@@ -11,8 +11,8 @@ public class ContinentConverter implements AttributeConverter<Continent, String>
     return attribute == null ? null : attribute.getIsoCode();
   }
 
-  private Continent decode(String json) {
-    return json == null ? null : Continent.forIsoCode(json);
+  private Continent decode(String value) {
+    return value == null ? null : Continent.forIsoCode(value);
   }
 
   @Override

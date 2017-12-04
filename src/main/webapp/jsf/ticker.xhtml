@@ -10,7 +10,9 @@
 	<ui:define name="content">
 
 		<f:websocket channel="ticker"
-			onmessage="function(message){document.getElementById('coolNewFeature').value=message;}" />
+			onmessage="function(message) {
+			             document.getElementById('coolNewFeature').value=message;
+			           }" />
 
 		<h:form prependId="false">
 			<h:panelGrid columns="2">

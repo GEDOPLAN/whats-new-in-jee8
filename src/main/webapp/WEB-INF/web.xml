@@ -35,10 +35,11 @@
     </context-param>
 
     <!-- Enable class level bean validation -->
-    <context-param>
-        <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name>
-        <param-value>true</param-value>
-    </context-param>
+    <!-- NOT WORKING ON GLF 5 -->
+<!--     <context-param> -->
+<!--         <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name> -->
+<!--         <param-value>true</param-value> -->
+<!--     </context-param> -->
 
     <!-- Enable websocket endpoints -->
     <context-param>

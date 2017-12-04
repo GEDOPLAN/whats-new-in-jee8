@@ -1,6 +1,5 @@
 package de.gedoplan.whatsnewinjee8.cdi.hello;
 
-import de.gedoplan.baselibs.utils.util.ClassUtil;
 import de.gedoplan.whatsnewinjee8.cdi.CdiTestBase;
 
 import javax.inject.Inject;
@@ -19,8 +18,5 @@ public class HelloWorldServiceTest extends CdiTestBase {
   @Test
   public void testHelloWorld() throws Exception {
     this.log.debug(this.helloWorldService.getHelloWorld());
-
-    this.log.debug("Class:         " + this.helloWorldService.getClass());
-    this.log.debug("Proxied class: " + ClassUtil.getProxiedClass(this.helloWorldService.getClass()));
   }
 }

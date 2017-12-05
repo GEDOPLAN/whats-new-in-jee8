@@ -8,9 +8,9 @@ public class SseServiceTest extends RestTestBase {
 
   @Test
   public void testSse() throws Exception {
-    try (SseEventSource source = SseEventSource.target(baseTarget.path("sse").path("register")).build()) {
-      source.register(e -> log.debug("Event received: " + e));
-      source.open();
+    try (SseEventSource sseEventSource = SseEventSource.target(baseTarget.path("sse")).build()) {
+      sseEventSource.register(e -> log.debug("Event received: " + e));
+      sseEventSource.open();
 
       // Process incoming events for 10 seconds
       Thread.sleep(10000);

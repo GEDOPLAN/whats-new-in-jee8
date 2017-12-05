@@ -41,7 +41,6 @@ public class SseResource {
   }
 
   @GET
-  @Path("register")
   @Produces(MediaType.SERVER_SENT_EVENTS)
   public void register(@Context SseEventSink sseEventSink) {
     this.sseBroadcaster.register(sseEventSink);

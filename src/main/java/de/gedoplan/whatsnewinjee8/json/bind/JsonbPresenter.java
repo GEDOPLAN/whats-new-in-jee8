@@ -29,7 +29,8 @@ public class JsonbPresenter {
   Log log;
 
   public void toJson() {
-    try (Jsonb jsonb = JsonbBuilder.create(new JsonbConfig().withFormatting(true))) {
+    JsonbConfig jsonbConfig = new JsonbConfig().withFormatting(true);
+    try (Jsonb jsonb = JsonbBuilder.create(jsonbConfig)) {
       this.json = jsonb.toJson(this.country);
     } catch (Exception e) {
       this.log.error("Cannot convert to JSON", e);

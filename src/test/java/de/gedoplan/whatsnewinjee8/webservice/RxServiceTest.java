@@ -1,38 +1,12 @@
 package de.gedoplan.whatsnewinjee8.webservice;
 
-import de.gedoplan.whatsnewinjee8.TestBase;
-
 import java.util.concurrent.CompletionStage;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class RxServiceTest extends TestBase {
-
-  private static Client client;
-  private static WebTarget baseTarget;
-
-  private static Log log = LogFactory.getLog(RxServiceTest.class);
-
-  @BeforeClass
-  public static void beforeClass() {
-    client = ClientBuilder.newClient();
-
-    baseTarget = client.target("http://localhost:8080/whats-new-in-jee8/rest");
-  }
-
-  @AfterClass
-  public static void afterClass() {
-    client.close();
-  }
+public class RxServiceTest extends RestTestBase {
 
   @Test
   public void testQuestionAnswer() throws Exception {

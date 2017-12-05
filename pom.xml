@@ -102,18 +102,18 @@
       <scope>test</scope>
     </dependency>
 
-<!--     <dependency> -->
-<!--       <groupId>org.apache.deltaspike.core</groupId> -->
-<!--       <artifactId>deltaspike-core-api</artifactId> -->
-<!--       <version>${deltaspike.version}</version> -->
-<!--       <scope>test</scope> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.apache.deltaspike.core</groupId> -->
-<!--       <artifactId>deltaspike-core-impl</artifactId> -->
-<!--       <version>${deltaspike.version}</version> -->
-<!--       <scope>test</scope> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.apache.deltaspike.core</groupId> -->
+    <!-- <artifactId>deltaspike-core-api</artifactId> -->
+    <!-- <version>${deltaspike.version}</version> -->
+    <!-- <scope>test</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.apache.deltaspike.core</groupId> -->
+    <!-- <artifactId>deltaspike-core-impl</artifactId> -->
+    <!-- <version>${deltaspike.version}</version> -->
+    <!-- <scope>test</scope> -->
+    <!-- </dependency> -->
     <dependency>
       <groupId>org.apache.deltaspike.cdictrl</groupId>
       <artifactId>deltaspike-cdictrl-api</artifactId>
@@ -142,6 +142,12 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-client</artifactId>
+      <version>4.0.0.Beta1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <profiles>
@@ -196,19 +202,19 @@
     <!-- Profiles for JSON-B provider -->
     <profile>
       <id>jsonb-yasson</id>
-<!--       <repositories> -->
-<!--         <repository> -->
-<!--           <id>yasson-snapshots</id> -->
-<!--           <name>Yasson Snapshots</name> -->
-<!--           <url>https://repo.eclipse.org/content/repositories/yasson-snapshots/</url> -->
-<!--           <releases> -->
-<!--             <enabled>false</enabled> -->
-<!--           </releases> -->
-<!--           <snapshots> -->
-<!--             <enabled>true</enabled> -->
-<!--           </snapshots> -->
-<!--         </repository> -->
-<!--       </repositories> -->
+      <!-- <repositories> -->
+      <!-- <repository> -->
+      <!-- <id>yasson-snapshots</id> -->
+      <!-- <name>Yasson Snapshots</name> -->
+      <!-- <url>https://repo.eclipse.org/content/repositories/yasson-snapshots/</url> -->
+      <!-- <releases> -->
+      <!-- <enabled>false</enabled> -->
+      <!-- </releases> -->
+      <!-- <snapshots> -->
+      <!-- <enabled>true</enabled> -->
+      <!-- </snapshots> -->
+      <!-- </repository> -->
+      <!-- </repositories> -->
 
       <dependencies>
         <dependency>

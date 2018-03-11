@@ -7,7 +7,7 @@
 <ui:composition template="/WEB-INF/templates/standard.xhtml">
   <ui:param name="title" value="Bean Validation" />
   <ui:define name="content">
-    <h2>JSF form with single field validation</h2> 
+    <h2>JSF form with single field validation and additional whole bean validation</h2> 
     
     <h:form id="form1">
       <h:panelGrid columns="3">
@@ -15,12 +15,16 @@
         <h:inputText id="pollDate"
           value="#{questionnairePresenter.questionnaire.pollDate}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="pollDate" />
 
         <h:outputLabel value="Name: " for="name" />
         <h:inputText id="name"
           value="#{questionnairePresenter.questionnaire.name}" size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="name" />
 
@@ -28,6 +32,8 @@
         <h:inputText id="street"
           value="#{questionnairePresenter.questionnaire.address.street}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="street" />
 
@@ -35,6 +41,8 @@
         <h:inputText id="zipCode"
           value="#{questionnairePresenter.questionnaire.address.zipCode}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="zipCode" />
 
@@ -42,12 +50,16 @@
         <h:inputText id="city"
           value="#{questionnairePresenter.questionnaire.address.city}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="city" />
 
         <h:outputLabel value="Age: " for="age" />
         <h:inputText id="age"
           value="#{questionnairePresenter.questionnaire.age}" size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="age" />
 
@@ -55,6 +67,8 @@
         <h:inputText id="email"
           value="#{questionnairePresenter.questionnaire.email}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="email" />
 
@@ -62,13 +76,20 @@
         <h:inputText id="comment"
           value="#{questionnairePresenter.questionnaire.comment}"
           size="50">
+          <f:validateBean
+            validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput" />
         </h:inputText>
         <h:message for="comment" />
 
         <h:commandButton value="ok" action="thanks"/>
       </h:panelGrid>
 
+      <f:validateWholeBean
+        value="#{questionnairePresenter.questionnaire}"
+        validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput"
+        rendered="#{facesContext.currentPhaseId.ordinal ne 4}" />
     </h:form>
+
 
     <h:messages globalOnly="true" />
   </ui:define>

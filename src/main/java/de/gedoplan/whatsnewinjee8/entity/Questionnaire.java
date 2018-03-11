@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -53,5 +54,13 @@ public class Questionnaire implements Serializable {
 
   public void setMarks(Integer... marks) {
     this.marks = Arrays.asList(marks);
+  }
+
+  @AssertTrue(groups = { InitialInput.class, Default.class }, message = "Personen unter 80 müssen eine EMail-Adresse haben")
+  public boolean isValid() {
+    if (this.age < 80) {
+      return this.email != null;
+    }
+    return true;
   }
 }

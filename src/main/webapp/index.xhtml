@@ -1,63 +1,73 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:composition template="WEB-INF/templates/standard.xhtml">
-        <ui:define name="content">
-            <h:form>
-                <dl>
-                    <dt>
-                        <strong>Java API for JSON Binding (JSON-B) 1.0</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dd>
-                                <h:commandLink value="POJO &lt;---&gt; JSON" action="/jsonb/toAndFromJson.xhtml?faces-redirect=true" />
-                            </dd>
-                            <dd>
-                                <h:outputLink  value="http://localhost:8080/whats-new-in-jee8/rest/country" target="_top" >Get JSON collection by REST call</h:outputLink>
-                            </dd>
-                        </dl>
-                    </dd>
+<ui:composition template="WEB-INF/templates/standard.xhtml">
+  <ui:define name="content">
+    <h:form>
+      <dl>
+        <dt>
+          <strong>Java API for JSON Binding (JSON-B) 1.0</strong>
+        </dt>
+        <dd>
+          <dl>
+            <dd>
+              <h:commandLink value="POJO &lt;---&gt; JSON"
+                action="/jsonb/toAndFromJson.xhtml?faces-redirect=true" />
+            </dd>
+            <dd>
+              <h:outputLink
+                value="http://localhost:8080/whats-new-in-jee8/rest/country"
+                target="_top">Get JSON collection by REST call</h:outputLink>
+            </dd>
+          </dl>
+        </dd>
 
-                    <hr/>
-                    
-                    <dt>
-                        <strong>Bean Validation 2.0</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dd>
-                                <h:commandLink value="Input validation" action="/validation/questionnaire.xhtml?faces-redirect=true" />
-                            </dd>
-                        </dl>
-                    </dd>
+        <hr />
 
-                    <hr/>
-                    
-                    <dt>
-                        <strong>JavaServer Faces 2.3</strong>
-                    </dt>
-                    <dd>
-                        <dl>
-                            <dd>
-                                <h:commandLink value="Multi-field validation" action="/validation/questionnaire.xhtml?faces-redirect=true" />
-                            </dd>
-                            <dd>
-                                <h:commandLink value="@Inject support in converter" action="/jsf/countryChooser.xhtml?faces-redirect=true" />
-                            </dd>
-                            <dd>
-                                <h:commandLink value="Websocket support" action="/jsf/ticker.xhtml?faces-redirect=true" />
-                            </dd>
-                        </dl>
-                    </dd>
+        <dt>
+          <strong>Bean Validation 2.0</strong>
+        </dt>
+        <dd>
+          <dl>
+            <dd>
+              <h:commandLink value="Input validation"
+                action="/validation/questionnaire.xhtml?faces-redirect=true" />
+            </dd>
+          </dl>
+        </dd>
 
-                    <hr/>
-                    
-                </dl>
-            </h:form>
-        </ui:define>
+        <hr />
+
+        <dt>
+          <strong>JavaServer Faces 2.3</strong>
+        </dt>
+        <dd>
+          <dl>
+            <dd>
+              <h:commandLink value="Multi-field validation"
+                action="/validation/questionnaireMulti.xhtml?faces-redirect=true" />
+            </dd>
+            <dd>
+              <h:commandLink value="@Inject support in converter"
+                action="/jsf/countryChooser.xhtml?faces-redirect=true" />
+            </dd>
+            <dd>
+              <h:commandLink value="Websocket support"
+                action="/jsf/ticker.xhtml?faces-redirect=true" />
+            </dd>
+          </dl>
+        </dd>
+
+        <hr />
+
+      </dl>
+    </h:form>
+  </ui:define>
 
 
-    </ui:composition>
+</ui:composition>
 </html>

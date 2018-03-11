@@ -22,7 +22,7 @@ import javax.validation.Payload;
 @Target({ FIELD, METHOD, TYPE })
 @Retention(RUNTIME)
 public @interface ValidAddress {
-  String message() default "{de.gedoplan.bvdemo.validation.constraint.ValidAddress.message}";
+  String message() default "Adresse muss komplett leer oder komplett gefüllt sein";
 
   Class<?>[] groups() default {};
 

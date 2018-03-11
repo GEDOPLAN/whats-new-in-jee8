@@ -36,28 +36,16 @@
 
     <!-- Enable class level bean validation -->
     <!-- NOT WORKING ON GLF 5 -->
-<!--     <context-param> -->
-<!--         <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name> -->
-<!--         <param-value>true</param-value> -->
-<!--     </context-param> -->
+    <context-param>
+        <param-name>javax.faces.validator.ENABLE_VALIDATE_WHOLE_BEAN</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
     <!-- Enable websocket endpoints -->
     <context-param>
         <param-name>javax.faces.ENABLE_WEBSOCKET_ENDPOINT</param-name>
         <param-value>true</param-value>
     </context-param>
-
-    <!-- Faces servlet -->
-    <servlet>
-        <servlet-name>Faces Servlet</servlet-name>
-        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    </servlet>
-
-    <!-- Faces servlet mapping -->
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
 
     <!-- Welcome files -->
     <welcome-file-list>

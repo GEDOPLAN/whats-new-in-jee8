@@ -47,6 +47,5 @@ public class CountryTest extends JpaTestBase {
     Country country = this.entityManager.find(Country.class, id);
 
     this.log.info("Found: " + country);
-
   }
 }

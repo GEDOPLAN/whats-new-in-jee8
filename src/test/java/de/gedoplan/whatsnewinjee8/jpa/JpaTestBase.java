@@ -39,7 +39,7 @@ public abstract class JpaTestBase extends TestBase {
   @BeforeClass
   public static void beforeClass() {
     if (entityManagerFactory == null) {
-      entityManagerFactory = Persistence.createEntityManagerFactory("conference-se");
+      entityManagerFactory = Persistence.createEntityManagerFactory("showcase-se");
     }
   }
 

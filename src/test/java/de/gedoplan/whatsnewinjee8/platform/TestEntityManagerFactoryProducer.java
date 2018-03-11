@@ -17,7 +17,7 @@ public class TestEntityManagerFactoryProducer {
 
   @PostConstruct
   void createEntityManagerFactory() {
-    this.entityManagerFactory = Persistence.createEntityManagerFactory("conference-se");
+    this.entityManagerFactory = Persistence.createEntityManagerFactory("showcase-se");
   }
 
   @PreDestroy

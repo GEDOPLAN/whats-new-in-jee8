@@ -16,7 +16,7 @@ public class EventObserver {
   Log log;
 
   void a(@Observes @Priority(Interceptor.Priority.APPLICATION + 1) DemoEvent e) {
-    track(e, "a");
+    track(e, "a"); // Register "a" in event for assertion later on and log "a"
     sleep(250);
     track(e, "A");
   }
@@ -42,6 +42,7 @@ public class EventObserver {
   void y(@ObservesAsync DemoEvent e) {
     track(e, "y");
     sleep(80);
+    // Throw exception (always, as e won't be null)
     if (e != null) {
       throw new RuntimeException("!Y");
     }

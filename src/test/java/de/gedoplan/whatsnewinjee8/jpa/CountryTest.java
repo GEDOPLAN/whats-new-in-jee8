@@ -1,5 +1,6 @@
 package de.gedoplan.whatsnewinjee8.jpa;
 
+import de.gedoplan.whatsnewinjee8.entity.Countries;
 import de.gedoplan.whatsnewinjee8.entity.Country;
 
 import org.junit.FixMethodOrder;
@@ -13,8 +14,8 @@ import org.junit.runners.MethodSorters;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CountryTest extends JpaTestBase {
-  public static Country[] testCountries = { Country.CA, Country.CN, Country.DE, Country.IT, Country.US, Country.VN, Country.YU };
-  public static Country[] testCountriesAS = { Country.CN, Country.VN };
+  public static Country[] testCountries = { Countries.CA, Countries.CN, Countries.DE, Countries.IT, Countries.US, Countries.VN, Countries.YU };
+  public static Country[] testCountriesAS = { Countries.CN, Countries.VN };
 
   @Test
   public void test_00_clearData() {
@@ -41,7 +42,7 @@ public class CountryTest extends JpaTestBase {
   public void test_02_findById() {
     this.log.debug("----- test_02_findById -----");
 
-    Country testCountry = Country.IT;
+    Country testCountry = Countries.IT;
     String id = testCountry.getId();
 
     Country country = this.entityManager.find(Country.class, id);

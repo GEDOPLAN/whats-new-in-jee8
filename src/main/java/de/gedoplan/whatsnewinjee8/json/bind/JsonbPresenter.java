@@ -1,6 +1,7 @@
 package de.gedoplan.whatsnewinjee8.json.bind;
 
 import de.gedoplan.whatsnewinjee8.entity.Continent;
+import de.gedoplan.whatsnewinjee8.entity.Countries;
 import de.gedoplan.whatsnewinjee8.entity.Country;
 
 import javax.enterprise.context.RequestScoped;
@@ -22,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JsonbPresenter {
-  private Country country = new Country(Country.DE);
+  private Country country = new Country(Countries.DE);
   private String json;
 
   @Inject

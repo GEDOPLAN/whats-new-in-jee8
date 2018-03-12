@@ -1,6 +1,6 @@
 package de.gedoplan.whatsnewinjee8.cdi.event;
 
-import de.gedoplan.whatsnewinjee8.entity.Country;
+import de.gedoplan.whatsnewinjee8.entity.Countries;
 import de.gedoplan.whatsnewinjee8.persistence.CountryRepository;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -20,13 +20,13 @@ public class InitCountryDemoDataService {
   @Transactional(rollbackOn = Exception.class)
   void createDemoData(@Observes @Initialized(ApplicationScoped.class) ServletContext event) {
     if (this.countryRepository.countAll() == 0) {
-      this.countryRepository.merge(Country.CA);
-      this.countryRepository.merge(Country.CN);
-      this.countryRepository.merge(Country.DE);
-      this.countryRepository.merge(Country.IT);
-      this.countryRepository.merge(Country.US);
-      this.countryRepository.merge(Country.VN);
-      this.countryRepository.merge(Country.YU);
+      this.countryRepository.merge(Countries.CA);
+      this.countryRepository.merge(Countries.CN);
+      this.countryRepository.merge(Countries.DE);
+      this.countryRepository.merge(Countries.IT);
+      this.countryRepository.merge(Countries.US);
+      this.countryRepository.merge(Countries.VN);
+      this.countryRepository.merge(Countries.YU);
     }
   }
 }

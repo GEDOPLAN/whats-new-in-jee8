@@ -36,7 +36,7 @@ public class AddressValidator implements ConstraintValidator<ValidAddress, Addre
       validationContext.disableDefaultConstraintViolation();
 
       // ... add message for validated object
-      validationContext.buildConstraintViolationWithTemplate("{de.gedoplan.bvdemo.validation.constraint.ValidAddress.zipCode.message}").addPropertyNode("zipCode").addConstraintViolation();
+      validationContext.buildConstraintViolationWithTemplate("kann nicht 00000 sein").addPropertyNode("zipCode").addConstraintViolation();
 
       return false;
     }

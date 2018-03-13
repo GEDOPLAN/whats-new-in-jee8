@@ -84,10 +84,11 @@
         <h:commandButton value="ok" action="thanks"/>
       </h:panelGrid>
 
+      <!-- Workaround for bug in Mojarra 2.3.3: Execute in phase 3 only -->
       <f:validateWholeBean
         value="#{questionnairePresenter.questionnaire}"
         validationGroups="de.gedoplan.whatsnewinjee8.validation.group.InitialInput"
-        rendered="#{facesContext.currentPhaseId.ordinal ne 4}" />
+        rendered="#{facesContext.currentPhaseId.ordinal eq 3}" />
     </h:form>
 
 

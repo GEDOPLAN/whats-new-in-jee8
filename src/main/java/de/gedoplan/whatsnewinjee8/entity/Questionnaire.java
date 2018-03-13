@@ -19,6 +19,9 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,6 +30,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Questionnaire implements Serializable {
+
+  private static final Log LOG = LogFactory.getLog(Questionnaire.class);
 
   @NotNull(groups = { InitialInput.class, Default.class })
   @PastOrPresent(groups = { InitialInput.class, Default.class })
@@ -58,9 +63,24 @@ public class Questionnaire implements Serializable {
 
   @AssertTrue(groups = { InitialInput.class, Default.class }, message = "Personen unter 80 müssen eine EMail-Adresse haben")
   public boolean isValid() {
+    LOG.trace("Questionnaire " + System.identityHashCode(this) + ": validate");
     if (this.age < 80) {
       return this.email != null;
     }
     return true;
+  }
+
+  public Questionnaire() {
+    LOG.trace("Questionnaire " + System.identityHashCode(this) + ": create");
+  }
+
+  public String getName() {
+    LOG.trace("Questionnaire " + System.identityHashCode(this) + ": getName: " + this.name);
+    return this.name;
+  }
+
+  public void setName(String name) {
+    LOG.trace("Questionnaire " + System.identityHashCode(this) + ": setName: " + name);
+    this.name = name;
   }
 }
